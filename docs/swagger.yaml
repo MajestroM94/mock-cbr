@@ -1,0 +1,32 @@
+basePath: /
+host: localhost:8080
+info:
+  contact: {}
+  description: Мок-сервис, имитирующий ответы ЦБ РФ
+  title: Mock CBR API
+  version: "1.0"
+paths:
+  /daily:
+    get:
+      description: Генерирует XML по дате. Если date=error, возвращает 500
+      parameters:
+      - description: Дата в формате DD-MM-YYYY
+        in: query
+        name: date
+        required: true
+        type: string
+      produces:
+      - text/xml
+      responses:
+        "200":
+          description: 'Пример ответа: XML Response'
+          schema:
+            type: string
+        "500":
+          description: 'Пример ответа: Internal Server Error'
+          schema:
+            type: string
+      summary: Получение XML курса валют
+      tags:
+      - currency
+swagger: "2.0"

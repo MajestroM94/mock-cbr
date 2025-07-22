@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package proto;
+option go_package = "internal/proto;proto";
+
+service CurrencyService {
+  rpc GetDaily (DailyRequest) returns (DailyResponse);
+}
+
+message DailyRequest {
+  string date = 1;
+}
+
+message DailyResponse {
+  string xml = 1;
+  repeated Valute valutes = 2;
+}
+
+message Valute {
+  string id = 1;
+  string num_code = 2;
+  string char_code = 3;
+  int32 nominal = 4;
+  string name = 5;
+  string value = 6;
+}
